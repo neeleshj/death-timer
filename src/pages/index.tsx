@@ -10,7 +10,7 @@ export default function Home() {
     const interval = setInterval(() => {
       const value = endDate - new Date().getTime();
       setCountDown(value);
-    }, 150);
+    }, 11);
 
     return () => clearInterval(interval);
   }, [endDate]);
