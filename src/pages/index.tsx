@@ -15,8 +15,8 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [endDate]);
 
-  function formatMilliseconds(milliseconds, padStart) {
-    function pad(num) {
+  function formatMilliseconds(milliseconds: number, padStart: boolean) {
+    function pad(num: number) {
       return `${num}`.padStart(2, '0');
     }
     const asSeconds = milliseconds / 1000;
