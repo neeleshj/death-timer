@@ -14,6 +14,9 @@ export const theme = extendTheme({
     brandGold: {
       400: '#FFCA28',
     },
+     brandRed: {
+      400: '#F56565',
+    },
   },
   fonts: {
     heading: 'Montserrat',
