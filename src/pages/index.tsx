@@ -10,7 +10,7 @@ export default function Home() {
     const interval = setInterval(() => {
       const value = endDate - new Date().getTime();
       setCountDown(value);
-    }, 100);
+    }, 150);
 
     return () => clearInterval(interval);
   }, [endDate]);
@@ -44,7 +44,7 @@ export default function Home() {
       backgroundColor="black"
       flex={1}
     >
-      <Box width={{ base: 'full', md: '400px' }} textAlign={{ base: 'center' }}>
+      <Box width={{ base: 'full', md: '750px' }} textAlign={{ base: 'center' }}>
         <Heading
           color="gold"
           fontSize={{ base: 'xl', md: '2xl', lg: '5xl', xl: '8xl' }}
