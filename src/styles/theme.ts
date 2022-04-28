@@ -26,7 +26,7 @@ export const theme = extendTheme({
     spacer: '24px',
   },
   sizes: {
-    maxWidth: '1200px',
+    maxWidth: '2400px',
   },
   config: {
     initialColorMode: 'light',
