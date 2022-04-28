@@ -12,7 +12,7 @@ export const theme = extendTheme({
       400: '#00ADB5',
     },
     brandGold: {
-      400: '#FFCA28',
+      400: '#FF1111',
     },
   },
   fonts: {
