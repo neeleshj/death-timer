@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <Flex
       w="full"
-      height={100}
+      height={200}
       justifyContent="center"
       alignItems="center"
       backgroundColor="black"
