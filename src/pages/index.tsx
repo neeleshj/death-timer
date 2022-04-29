@@ -1,10 +1,10 @@
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
-export default function Home() {
   const endDate = Date.parse('27 May 2022 09:10:32 GMT');
 
   const [countDown, setCountDown] = useState(endDate - new Date().getTime());
+export default function Home(): JSX.Element {
 
   useEffect(() => {
     const interval = setInterval(() => {
