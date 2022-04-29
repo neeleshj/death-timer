@@ -54,7 +54,7 @@ export default function Home() {
     >
       <Box width={{ base: 'full', md: '750px' }} textAlign={{ base: 'center' }}>
         <Heading
-          color="red"
+          color="gold"
           fontSize={{ base: '2xl', md: '5xl', lg: '8xl', xl: '16xl' }}
         >
           {formatMilliseconds(countDown, true)}:
