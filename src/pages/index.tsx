@@ -31,15 +31,17 @@ export default function Home() {
       minutes %= 60;
     }
 
-    return hours
-      ? `${padStart ? pad(hours) : hours}:${pad(minutes)}:${pad(seconds)}`
-      : `${padStart ? pad(minutes) : minutes}:${pad(seconds)}`;
-  }
-
     if (hours > 23) {
       days = Math.floor(hours/24);
       hours %= 24
     }
+
+    return hours
+      ? `${padStart ? pad(days) : days}:? `${padStart ? pad(hours) : hours}:${pad(minutes)}:${pad(seconds)}`
+      : `${padStart ? pad(minutes) : minutes}:${pad(seconds)}`;
+  }
+
+  
 
   return (
     <Flex
