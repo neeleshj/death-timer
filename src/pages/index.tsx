@@ -1,47 +1,32 @@
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import { intervalToDuration } from 'date-fns';
 
-export default function Home() {
-  const endDate = Date.parse('27 May 2022 09:10:32 GMT');
+const endDate = new Date(Date.parse('27 May 2022 09:10:32 GMT'));
 
-  const [countDown, setCountDown] = useState(endDate - new Date().getTime());
+const getIntervalToDuration = () =>
+  intervalToDuration({
+    start: new Date(),
+    end: endDate,
+  });
+
+export default function Home(): JSX.Element {
+  const [intervalToDur, setIntervalToDur] = useState(getIntervalToDuration());
+
+  const [countDown, setCountDown] = useState(
+    endDate.getTime() - new Date().getTime()
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const value = endDate - new Date().getTime();
+      setIntervalToDur(getIntervalToDuration());
+
+      const value = endDate.getTime() - new Date().getTime();
       setCountDown(value);
     }, 11);
 
     return () => clearInterval(interval);
-  }, [endDate]);
-
-  function formatMilliseconds(milliseconds: number, padStart: boolean) {
-    function pad(num: number) {
-      return `${num}`.padStart(2, '0');
-    }
-    const asSeconds = milliseconds / 1000;
-
-    let days = undefined;
-    let hours = undefined;
-    let minutes = Math.floor(asSeconds / 60);
-    const seconds = Math.floor(asSeconds % 60);
-
-    if (minutes > 59) {
-      hours = Math.floor(minutes / 60);
-      minutes %= 60;
-    }
-
-    if (hours > 23) {
-      days = Math.floor(hours/24);
-      hours %= 24
-    }
-
-    return hours
-      ? `${padStart ? pad(days) : days}:? `${padStart ? pad(hours) : hours}:${pad(minutes)}:${pad(seconds)}`
-      : `${padStart ? pad(minutes) : minutes}:${pad(seconds)}`;
-  }
-
-  
+  }, []);
 
   return (
     <Flex
@@ -54,10 +39,10 @@ export default function Home() {
     >
       <Box width={{ base: 'full', md: '750px' }} textAlign={{ base: 'center' }}>
         <Heading
-          color="gold"
+          color="red"
           fontSize={{ base: '2xl', md: '5xl', lg: '8xl', xl: '16xl' }}
         >
-          {formatMilliseconds(countDown, true)}:
+          {`${intervalToDur.days}:${intervalToDur.hours}:${intervalToDur.minutes}:${intervalToDur.seconds}:`}
           {countDown
             .toString()
             .slice(
