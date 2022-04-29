@@ -21,10 +21,11 @@ export default function Home() {
     }
     const asSeconds = milliseconds / 1000;
 
-    let days = undefined;
+    
     let hours = undefined;
     let minutes = Math.floor(asSeconds / 60);
     const seconds = Math.floor(asSeconds % 60);
+    let days = Math.floor(asSeconds / 86400);
 
     if (minutes > 59) {
       hours = Math.floor(minutes / 60);
