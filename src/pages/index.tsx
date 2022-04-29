@@ -21,6 +21,7 @@ export default function Home() {
     }
     const asSeconds = milliseconds / 1000;
 
+    let days = undefined;
     let hours = undefined;
     let minutes = Math.floor(asSeconds / 60);
     const seconds = Math.floor(asSeconds % 60);
@@ -34,6 +35,11 @@ export default function Home() {
       ? `${padStart ? pad(hours) : hours}:${pad(minutes)}:${pad(seconds)}`
       : `${padStart ? pad(minutes) : minutes}:${pad(seconds)}`;
   }
+
+    if (hours > 23) {
+      days = Math.floor(hours/24);
+      hours %= 24
+    }
 
   return (
     <Flex
