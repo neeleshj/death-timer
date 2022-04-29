@@ -22,7 +22,7 @@ export default function Home() {
     const asSeconds = milliseconds / 1000;
 
     
-    let hours = undefined;
+    let hours = 0;
     let minutes = Math.floor(asSeconds / 60);
     const seconds = Math.floor(asSeconds % 60);
     let days = Math.floor(asSeconds / 86400);
