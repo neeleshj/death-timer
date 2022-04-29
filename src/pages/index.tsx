@@ -21,28 +21,19 @@ export default function Home() {
     }
     const asSeconds = milliseconds / 1000;
 
-    
-    let hours = 0;
+    let hours = undefined;
     let minutes = Math.floor(asSeconds / 60);
     const seconds = Math.floor(asSeconds % 60);
-    let days = Math.floor(asSeconds / 86400);
 
     if (minutes > 59) {
       hours = Math.floor(minutes / 60);
       minutes %= 60;
     }
 
-    if (hours > 23) {
-      days = Math.floor(hours/24);
-      hours %= 24
-    }
-
     return hours
-      ? `${padStart ? pad(days) : days}:? `${padStart ? pad(hours) : hours}:${pad(minutes)}:${pad(seconds)}`
+      ? `${padStart ? pad(hours) : hours}:${pad(minutes)}:${pad(seconds)}`
       : `${padStart ? pad(minutes) : minutes}:${pad(seconds)}`;
   }
-
-  
 
   return (
     <Flex
@@ -55,7 +46,7 @@ export default function Home() {
     >
       <Box width={{ base: 'full', md: '750px' }} textAlign={{ base: 'center' }}>
         <Heading
-          color="gold"
+          color="red"
           fontSize={{ base: '2xl', md: '5xl', lg: '8xl', xl: '16xl' }}
         >
           {formatMilliseconds(countDown, true)}:
